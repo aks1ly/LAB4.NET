@@ -6,14 +6,16 @@ namespace Lab3
 {
     public class EmployeeAnalysis
     {
-        public static double CalculateTotalSalaryFund(List<Employee> employees)
+        public static double CalculateTotalSalaryFund(IEnumerable<ISalaryCalculable> employees) 
+            //перебираємо об'єкти не як Programmer, Designer чи Manager, а об'єкти з інтерфейсом ISalaryCalculable
         {
             double total = 0;
-            foreach (Employee employee in employees)
+            foreach (ISalaryCalculable employee in employees)
             {
                 total += employee.CalculateMonthlySalary(employee.HoursWorked);
             }
             return total;
         }
+
     }
 }

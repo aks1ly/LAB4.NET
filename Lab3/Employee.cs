@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab3
 {
-    public abstract class Employee
+    public abstract class Employee : ISalaryCalculable, IProjectable
     {
         private string position;
         public string Position

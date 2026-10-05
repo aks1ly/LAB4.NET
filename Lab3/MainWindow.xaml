@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Облік співробітників"
-        Height="700"
+        Height="900"
         Width="950"
         MinHeight="650"
         MinWidth="850"
@@ -57,6 +57,7 @@
                               SelectionChanged="EmployeeTypeComboBox_SelectionChanged">
                         <ComboBoxItem Content="Програміст"/>
                         <ComboBoxItem Content="Дизайнер"/>
+                        <ComboBoxItem Content="Менеджер"/>
                     </ComboBox>
                     <TextBlock Text="Посада"/>
                     <TextBox x:Name="PositionTextBox"/>
@@ -66,14 +67,26 @@
                     <TextBox x:Name="HourlyRateTextBox"/>
                     <TextBlock Text="Відпрацьовані години"/>
                     <TextBox x:Name="HoursTextBox"/>
+                    <TextBlock Text="Назва проєкту"/>
+                    <TextBox x:Name="ProjectTextBox"/>
+                    <Button Content="+ ДОДАТИ ПРОЄКТ"
+                            Click="AddProjectButton_Click"/>
+                    <ListBox x:Name="ProjectsListBox"
+                             Height="70"/>
                     <TextBlock x:Name="AdditionalFieldLabel"
-                        Text="Рівень"/>
+                               Text="Рівень"/>
                     <ComboBox x:Name="LevelComboBox">
                         <ComboBoxItem Content="Junior"/>
                         <ComboBoxItem Content="Senior"/>
                     </ComboBox>
-                    <TextBox x:Name="SpecializationTextBox"
-                        Visibility="Collapsed"/>
+                    <ComboBox x:Name="SpecializationComboBox"
+                              Visibility="Collapsed">
+                        <ComboBoxItem Content="UI/UX"/>
+                        <ComboBoxItem Content="Вебдизайн"/>
+                        <ComboBoxItem Content="Графічний дизайн"/>
+                    </ComboBox>
+                    <TextBox x:Name="TeamSizeTextBox"
+                              Visibility="Collapsed"/>
                     <Button Content="+  ДОДАТИ СПІВРОБІТНИКА"
                             Click="AddEmployeeButton_Click"
                             Margin="0,6,0,0"/>
@@ -105,20 +118,20 @@
                              FontSize="14"
                              Padding="5"/>
                     <Border Grid.Row="2"
-        Background="#F4F4F4"
-        CornerRadius="5"
-        Margin="0,18,0,0"
-        Padding="15">
+                            Background="#F4F4F4"
+                            CornerRadius="5"
+                            Margin="0,18,0,0"
+                            Padding="15">
                         <StackPanel>
                             <TextBlock Text="ЗАГАЛЬНИЙ ФОНД ЗАРПЛАТИ"
-                   Foreground="#777777"
-                   FontSize="11"
-                   FontWeight="SemiBold"/>
+                                       Foreground="#777777"
+                                       FontSize="11"
+                                       FontWeight="SemiBold"/>
                             <TextBlock x:Name="TotalSalaryTextBlock"
-                   Text="0 грн"
-                   FontSize="22"
-                   FontWeight="Bold"
-                   Margin="0,3,0,0"/>
+                                       Text="0 грн"
+                                       FontSize="22"
+                                       FontWeight="Bold"
+                                       Margin="0,3,0,0"/>
                         </StackPanel>
                     </Border>
                 </Grid>

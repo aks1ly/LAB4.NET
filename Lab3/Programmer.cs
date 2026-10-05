@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab3
 {
-    public class Programmer : Employee
+    public class Programmer : Employee, IBonusCalculable
     {
         private string level;
         private List<string> projects = new List<string>();
